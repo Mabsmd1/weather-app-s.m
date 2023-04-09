@@ -27,6 +27,7 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+
   let dateElement = document.querySelector("#date");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
@@ -36,6 +37,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.time * 1000);
 }
 let apiKey = "at7b28943c43d128foef0905a5e56bb7";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Bela-Bela&key=${apiKey}&units=metric`;
+let city = "Pretoria";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
